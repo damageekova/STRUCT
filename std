@@ -13,22 +13,21 @@ struct data
     short int f;
 
 } student;
-int grouppe (data Obj[], int n);
 
-int avg(int a,int b,int c,int d,int e,int f){
-int sred=(a+b+c+d+e+f)/6;
+float avg(int a,int b,int c,int d,int e,int f){
+float sred=(a+b+c+d+e+f)/6;
 return sred;
 }
 
 int stip (int a,int b,int c,int d,int e,int f){
-if (a>3&&b>3&&c>3&&d>3&&e>3&&f>3) cout<<"accrue a scholarship";
-else cout<<"don't accrue a scholarship";
+if (a>3&&b>3&&c>3&&d>3&&e>3&&f>3) cout<<"accrue a scholarship"<<endl;
+else cout<<"don't accrue a scholarship"<<endl;
 return 0;
 }
 
 int dolg (int a,int b,int c,int d,int e,int f){
-if (a==2||b==2||c==2||d==2||e==2||f==2)  cout<<"student has got debts";
-else cout<<" student hasn't got debts";
+if (a==2||b==2||c==2||d==2||e==2||f==2)  cout<<"student has got debts"<<endl;
+else cout<<" student hasn't got debts"<<endl;
 return 0;
 }
 
@@ -36,7 +35,6 @@ int srs (data student[], int n){
 int s[n];
 for (int i=0; i<n; i++){
 s[i]=(student[i].a+student[i].b+student[i].c+student[i].d+student[i].e+student[i].f)/6;
-return 0;
 }
 int max1=s[0];
 for (int i=0; i<n; i++){
@@ -60,7 +58,7 @@ if(s[i]!=max1||s[i]!=max2||s[i]!=min1||s[i]!=min2)
 srs1=srs1+s[i];
 }
 int all=srs1/n;
-cout<< "GPA in the classroom "<< all;
+cout<< "GPA in the grouppe = "<< all<<endl;
 return 0;
 }
 
@@ -69,7 +67,7 @@ int k=0;
 for (int i=0;i<n;i++){
 if (student[i].a>3&&student[i].b>3&&student[i].c>3&&student[i].d>3&&student[i].e>3&&student[i].f>3) k=k+1;
 }
-cout<<k<<" approved students for a scholarship";
+cout<<k<<" approved students for a scholarship"<<endl;
 return 0;
 }
 
@@ -78,7 +76,7 @@ int p=0;
 for (int i=0;i<n;i++){
 if (student[i].a==2||student[i].b==2||student[i].c==2||student[i].d==2||student[i].e==2||student[i].f==2)  p=p+1;
 }
-cout<<p<<" students with debts";
+cout<<p<<" students with debts"<<endl;
 return 0;
 }
 
@@ -94,7 +92,7 @@ if (student[i].e<3) debt=debt+1;
 if (student[i].f<3) debt=debt+1;
 if (debt>1) std=std+1;
 }
-cout<< std<< " expelled students";
+cout<< std<< " expelled students"<<endl;
 return 0;
 }
 
