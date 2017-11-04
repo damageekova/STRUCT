@@ -2,9 +2,9 @@
 using namespace std;
 struct data
 {
-    int name;
-    int surname;
-    int patronymic;
+    char name[30];
+    char surname[30];
+    char patronymic[30];
     short int a;
     short int b;
     short int c;
