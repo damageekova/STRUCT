@@ -1,0 +1,124 @@
+#include <iostream>
+using namespace std;
+struct data
+{
+    int name;
+    int surname;
+    int patronymic;
+    short int a;
+    short int b;
+    short int c;
+    short int d;
+    short int e;
+    short int f;
+
+} student;
+int grouppe (data Obj[], int n);
+
+int avg(int a,int b,int c,int d,int e,int f){
+int sred=(a+b+c+d+e+f)/6;
+return sred;
+}
+
+int stip (int a,int b,int c,int d,int e,int f){
+if (a>3&&b>3&&c>3&&d>3&&e>3&&f>3) cout<<"accrue a scholarship";
+else cout<<"don't accrue a scholarship";
+return 0;
+}
+
+int dolg (int a,int b,int c,int d,int e,int f){
+if (a==2||b==2||c==2||d==2||e==2||f==2)  cout<<"student has got debts";
+else cout<<" student hasn't got debts";
+return 0;
+}
+
+int srs (data student[], int n){
+int s[n];
+for (int i=0; i<n; i++){
+s[i]=(student[i].a+student[i].b+student[i].c+student[i].d+student[i].e+student[i].f)/6;
+return 0;
+}
+int max1=s[0];
+for (int i=0; i<n; i++){
+if (s[i]>max1) max1=s[i];
+}
+int max2=s[0];
+for (int i=0; i<n; i++){
+if (s[i]>max2&& s[i]< max1) max2=s[i];
+}
+int min1=s[0];
+for (int i=0; i<n; i++){
+if (s[i]<min1) min1=s[i];
+}
+int min2=s[0];
+for (int i=0; i<n; i++){
+if (s[i]<min2&& s[i]< min1) min2=s[i];
+}
+int srs1=0;
+for (int i=0; i<n; i++) {
+if(s[i]!=max1||s[i]!=max2||s[i]!=min1||s[i]!=min2)
+srs1=srs1+s[i];
+}
+int all=srs1/n;
+cout<< "GPA in the classroom "<< all;
+return 0;
+}
+
+int stips (data student[], int n){
+int k=0;
+for (int i=0;i<n;i++){
+if (student[i].a>3&&student[i].b>3&&student[i].c>3&&student[i].d>3&&student[i].e>3&&student[i].f>3) k=k+1;
+}
+cout<<k<<" approved students for a scholarship";
+return 0;
+}
+
+int dolgs (data student[], int n){
+int p=0;
+for (int i=0;i<n;i++){
+if (student[i].a==2||student[i].b==2||student[i].c==2||student[i].d==2||student[i].e==2||student[i].f==2)  p=p+1;
+}
+cout<<p<<" students with debts";
+return 0;
+}
+
+int ot (data student[], int n) {
+int std=0;
+for (int i=0;i<n;i++){
+int debt=0;
+if (student[i].a<3) debt=debt+1;
+if (student[i].b<3) debt=debt+1;
+if (student[i].c<3) debt=debt+1;
+if (student[i].d<3) debt=debt+1;
+if (student[i].e<3) debt=debt+1;
+if (student[i].f<3) debt=debt+1;
+if (debt>1) std=std+1;
+}
+cout<< std<< " expelled students";
+return 0;
+}
+
+
+
+
+int main(){
+int n;
+cout<<"Enter the number of students  "<<endl;
+cin>>n;
+data student[n] = {};
+for (int i=0; i<n; i++){
+cout<<"Data of  "<<i+1<<"  student"<<endl;
+cout<<"Name:  ";
+cin >> student[i].name>> student[i].surname>>student[i].patronymic;
+cout<<"Marks for 6 exams:  "<<" ";
+cin>> student[i].a>>student[i].b>> student[i].c>>student[i].d>>student[i].e>>student[i].f;
+cout<<"average value= " <<avg (student[i].a,student[i].b,student[i].c,student[i].d,student[i].e,student[i].f)<<endl;
+cout<<stip (student[i].a,student[i].b,student[i].c,student[i].d,student[i].e,student[i].f)<<endl;
+cout<<dolg (student[i].a,student[i].b,student[i].c,student[i].d,student[i].e,student[i].f)<<endl<<endl;
+}
+cout<<ot (student, n)<<endl;
+cout<<srs (student, n)<<endl;
+cout<< dolgs (student, n)<<endl;
+cout<<stips (student, n)<<endl;
+return 0;
+}
